@@ -6,15 +6,10 @@
     <h2 class="mt-8 text-2xl font-medium text-slate-700">Hi There 👋 !</h2>
     <p class="mt-4 mb-10 text-lg leading-6 text-slate-700">
       This is Tailwind CSS Starter Kit to help you get started quickly with a
-      new Web project using Tailwind CSS installed with Vite.
+      new Web project using Tailwind CSS installed with Vite for
+      <span class="font-medium text-indigo-500">super fast prototyping 🚀</span
+      >.
     </p>
-    <div class="">
-      <h2
-        class="mb-3 border-b border-slate-100 pb-1 text-3xl font-bold text-slate-700"
-      >
-        Installation
-      </h2>
-      <p class="text-slate-700">To be completed...</p>
-    </div>
+    <p class="text-xl font-medium text-slate-700">Have Fun!</p>
   </div>
 </template>
