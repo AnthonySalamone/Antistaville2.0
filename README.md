@@ -3,6 +3,8 @@
 
 This is Tailwind CSS Starter Kit to help you get started quickly with a new Web project using Tailwind CSS installed with Vite.
 
+![Screenshot](Screenshot.png)
+
 
 ## Installation
 ### Clone the repository
