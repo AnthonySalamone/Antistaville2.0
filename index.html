@@ -2,12 +2,138 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>title</title>
+    <meta name="description" content="L’Antistabus : une ludothèque sur roues - Antistaville">
+    <title>Antistaville</title>
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.14.3/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+
+    <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
   </head>
-  <body class="antialiased text-slate-500 bg-white">
-    <h1 class="text-2xl text-mint border-2 border-mint py-2 rounded-lg p-2">Hello Anthony</h1>
+  <body class="antialiased text-base font-sans lg:grid max-lg:px-4 grid-cols-[minmax(80px,auto)_minmax(0,1400px)_minmax(80px,auto)]">
+
+    <!-- Header partial start -->
+    <header class="col-span-1 col-start-2 border-b border-grey-200 flex justify-between items-center py-7 lg:py-10 mb-6 lg:mb-4" x-data="{ open: false }">
+      <div>
+        <svg class="h-5 w-32 lg:h-6 lg:w-36">
+          <use xlink:href="./src/assets/icons/icons.svg#Antistaville_logo" />
+        </svg>
+      </div>
+      <!-- Desktop nav -->
+      <nav class="max-xl:hidden">
+        <ul class="flex gap-x-6 text-base">
+          <li>
+            <a href="#">Administration et autorités</a>
+          </li>
+          <li>
+            <a href="#">Vie pratique</a>
+          </li>
+          <li>
+            <a href="#">Culture, sport et loisirs</a>
+          </li>
+          <li>
+            <a href="#">Agenda</a>
+          </li>
+          <li>
+            <a href="#">Actualités</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="flex gap-x-6 items-center">
+        <a href="#">
+          <svg class="w-6 h-6">
+            <use xlink:href="./src/assets/icons/icons.svg#search" />
+          </svg>
+        </a>
+        <a href="#" class="xl:hidden" x-on:click="open = ! open">
+          <svg class="w-6 h-6">
+            <use xlink:href="./src/assets/icons/icons.svg#burger" />
+          </svg>
+        </a>
+        <!-- Button partial start -->
+        <a href="#" class="button max-xl:hidden">
+          Guichet
+        </a>
+        <!-- Button partial end -->
+      </div>
+
+      <div class="absolute top-20 lg:top-26 left-0 w-full h-full bg-anis z-10 px-4 lg:px-20 xl:hidden" x-show="open" x-transition>
+        <nav class="xl:hidden">
+          <ul class="flex flex-col gap-y-6 text-lg mt-6">
+            <!-- for end for -->
+            <div class="flex items-center justify-between border-b border-white pb-6 cursor-pointer">
+              <li>
+                <a href="#">Administration et autorités</a>
+              </li>
+              <svg class="w-4 h-4">
+                <use xlink:href="./src/assets/icons/icons.svg#chevron" />
+              </svg>
+            </div>
+            <div class="flex items-center justify-between border-b border-white pb-6 cursor-pointer">
+              <li>
+                <a href="#">Vie pratique</a>
+              </li>
+              <svg class="w-4 h-4">
+                <use xlink:href="./src/assets/icons/icons.svg#chevron" />
+              </svg>
+            </div>
+            <div class="flex items-center justify-between border-b border-white pb-6 cursor-pointer">
+              <li>
+                <a href="#">Culture, sport et loisirs</a>
+              </li>
+              <svg class="w-4 h-4">
+                <use xlink:href="./src/assets/icons/icons.svg#chevron" />
+              </svg>
+            </div>
+            <div class="flex items-center justify-between border-b border-white pb-6 cursor-pointer">
+              <li>
+                <a href="#">Agenda</a>
+              </li>
+              <svg class="w-4 h-4">
+                <use xlink:href="./src/assets/icons/icons.svg#chevron" />
+              </svg>
+            </div>
+            <div class="flex items-center justify-between border-b border-white pb-6 cursor-pointer">
+              <li>
+                <a href="#">Actualités</a>
+              </li>
+              <svg class="w-4 h-4">
+                <use xlink:href="./src/assets/icons/icons.svg#chevron" />
+              </svg>
+            </div>
+            
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Header partial end -->
+    <!-- Mobile nav -->
+
+    <main class="col-span-1 col-start-2">
+      <!-- Breadcrumb partial start -->
+      <div class="flex items-center gap-x-2 text-sm lg:text-grey-700 mb-6 lg:mb-14">
+        <svg class="w-3 h-3 lg:hidden transform rotate-180">
+          <use xlink:href="./src/assets/icons/icons.svg#chevron" />
+        </svg>
+        <a href="#">Accueil</a>
+        <svg class="w-3 h-3 max-lg:hidden ">
+          <use xlink:href="./src/assets/icons/icons.svg#chevron" />
+        </svg>
+        <a href="#" class="max-lg:hidden">Actualités</a>
+        <svg class="w-3 h-3 max-lg:hidden">
+          <use xlink:href="./src/assets/icons/icons.svg#chevron" />
+        </svg>
+        <a href="#" class="max-lg:hidden">L’Antistabus : une ludothèque sur roues</a>
+      </div>
+      <!-- Breadcrumb partial end -->
+    </main>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

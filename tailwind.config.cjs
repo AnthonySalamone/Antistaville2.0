@@ -66,6 +66,10 @@ module.exports = {
       mint: '#3F9544',
       anis: '#C8E671',
     },
+    fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+      serif: ['Lexend', 'serif'],
+    },
     fontSize: {
       "4xl": [
         createFluidValue(32, 48),
@@ -128,7 +132,12 @@ module.exports = {
         },
       ],
     },
-    extend: {},
+    extend: {
+      spacing: {
+        26: "6.5rem",
+        30: "7.5rem",
+      },
+    },
   },
   plugins: [],
 }

@@ -1,0 +1,11 @@
+@import "./component/button.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base */
+
+a {
+  @apply cursor-pointer;
+}
