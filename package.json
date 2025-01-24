@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:icons": "rm -f src/assets/icons/icons.svg && svg-sprite -s --symbol-inline --symbol-dest src/assets/icons --symbol-sprite icons.svg src/assets/icons/*.svg",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
     "postcss": "^8.4.20",
     "prettier": "^2.8.1",
     "prettier-plugin-tailwindcss": "^0.2.1",
+    "svg-sprite": "^2.0.4",
     "tailwindcss": "^3.2.4",
     "vite": "^4.0.0"
   }
