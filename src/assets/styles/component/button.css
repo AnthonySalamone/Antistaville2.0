@@ -1,3 +1,37 @@
-.button {
-  @apply bg-anis text-black px-3.5 py-2 rounded-lg font-bold;
+/* regular */
+.button,
+button.button,
+a.button {
+  @apply inline-block rounded-lg bg-anis px-3.5 py-2 font-bold text-black transition-colors duration-300 ease-in-out;
+}
+
+.button:hover,
+button.button:hover,
+a.button:hover {
+  @apply bg-mint text-white transition-colors duration-300 ease-in-out;
+}
+
+.button:active,
+button.button:active,
+a.button:active {
+  @apply brightness-90;
+}
+
+/* light */
+.button-light,
+button.button-light,
+a.button-light {
+  @apply inline-block rounded-lg border-2 border-grey-200 bg-white px-3.5 py-2 font-bold text-black transition-colors duration-300 ease-in-out;
+}
+
+.button-light:hover,
+button.button-light:hover,
+a.button-light:hover {
+  @apply bg-anis transition-colors duration-300 ease-in-out;
+}
+
+.button-light:active,
+button.button-light:active,
+a.button-light:active {
+  @apply brightness-90;
 }

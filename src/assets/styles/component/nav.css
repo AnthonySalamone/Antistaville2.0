@@ -1,0 +1,19 @@
+@media (hover: hover) {
+  nav ul li a {
+    @apply relative inline-block;
+  }
+
+  nav ul li a::after {
+    @apply absolute bottom-0.5 left-0 h-px w-full bg-mint content-[''];
+    @apply scale-x-0 transform;
+    @apply origin-right transition-transform duration-300 ease-in-out;
+  }
+
+  nav ul li a:hover::after {
+    @apply origin-left scale-x-100;
+  }
+}
+
+nav ul li a.active {
+  @apply underline underline-offset-4;
+}
