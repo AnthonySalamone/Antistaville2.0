@@ -1,0 +1,15 @@
+.inline-link {
+  @apply text-mint underline underline-offset-4 inline-block relative;
+}
+
+.inline-link::after {
+  @apply content-[''] absolute w-full h-full bg-mint opacity-10 bottom-0 left-0;
+  @apply transform scale-x-0;
+  @apply transition-transform duration-300 ease-in-out origin-right;
+}
+
+.inline-link:hover::after {
+  @apply scale-x-100 origin-left;
+}
+
+

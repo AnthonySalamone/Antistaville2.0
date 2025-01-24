@@ -1,4 +1,7 @@
 @import "./component/button.css";
+@import "./component/titles.css";
+@import "./component/inline-link.css";
+@import "layout.css";
 
 @tailwind base;
 @tailwind components;

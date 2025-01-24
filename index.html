@@ -3,23 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="L’Antistabus : une ludothèque sur roues - Antistaville">
+    <meta
+      name="description"
+      content="L'Antistabus : une ludothèque sur roues - Antistaville"
+    />
     <title>Antistaville</title>
 
     <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.14.3/dist/cdn.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.14.3/dist/cdn.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"
+    ></script>
 
     <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.ico" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="antialiased text-base font-sans lg:grid max-lg:px-4 grid-cols-[minmax(80px,auto)_minmax(0,1400px)_minmax(80px,auto)]">
-
+  <body
+    class="grid-cols-[minmax(80px,auto)_minmax(0,1400px)_minmax(80px,auto)] font-sans text-base antialiased max-lg:px-4 lg:grid"
+  >
     <!-- Header partial start -->
-    <header class="col-span-1 col-start-2 border-b border-grey-200 flex justify-between items-center py-7 lg:py-10 mb-6 lg:mb-4" x-data="{ open: false }">
+    <header
+      class="col-span-1 col-start-2 mb-6 flex items-center justify-between border-b border-grey-200 py-7 lg:mb-4 lg:py-10"
+      x-data="{ open: false }"
+    >
       <div>
         <svg class="h-5 w-32 lg:h-6 lg:w-36">
           <use xlink:href="./src/assets/icons/icons.svg#Antistaville_logo" />
@@ -45,96 +61,265 @@
           </li>
         </ul>
       </nav>
-      <div class="flex gap-x-6 items-center">
+      <div class="flex items-center gap-x-6">
         <a href="#">
-          <svg class="w-6 h-6">
+          <svg class="h-6 w-6">
             <use xlink:href="./src/assets/icons/icons.svg#search" />
           </svg>
         </a>
         <a href="#" class="xl:hidden" x-on:click="open = ! open">
-          <svg class="w-6 h-6">
+          <svg class="h-6 w-6">
             <use xlink:href="./src/assets/icons/icons.svg#burger" />
           </svg>
         </a>
         <!-- Button partial start -->
-        <a href="#" class="button max-xl:hidden">
-          Guichet
-        </a>
+        <a href="#" class="button max-xl:hidden"> Guichet </a>
         <!-- Button partial end -->
       </div>
 
-      <div class="absolute top-20 lg:top-26 left-0 w-full h-full bg-anis z-10 px-4 lg:px-20 xl:hidden" x-show="open" x-transition>
+      <!-- Mobile nav -->
+      <div
+        class="absolute top-20 left-0 z-10 h-full w-full bg-anis px-4 lg:top-26 lg:px-20 xl:hidden"
+        x-show="open"
+        x-transition
+      >
         <nav class="xl:hidden">
-          <ul class="flex flex-col gap-y-6 text-lg mt-6">
+          <ul class="mt-6 flex flex-col gap-y-6 text-lg">
             <!-- for end for -->
-            <div class="flex items-center justify-between border-b border-white pb-6 cursor-pointer">
+            <div
+              class="flex cursor-pointer items-center justify-between border-b border-white pb-6"
+            >
               <li>
                 <a href="#">Administration et autorités</a>
               </li>
-              <svg class="w-4 h-4">
+              <svg class="h-4 w-4">
                 <use xlink:href="./src/assets/icons/icons.svg#chevron" />
               </svg>
             </div>
-            <div class="flex items-center justify-between border-b border-white pb-6 cursor-pointer">
+            <div
+              class="flex cursor-pointer items-center justify-between border-b border-white pb-6"
+            >
               <li>
                 <a href="#">Vie pratique</a>
               </li>
-              <svg class="w-4 h-4">
+              <svg class="h-4 w-4">
                 <use xlink:href="./src/assets/icons/icons.svg#chevron" />
               </svg>
             </div>
-            <div class="flex items-center justify-between border-b border-white pb-6 cursor-pointer">
+            <div
+              class="flex cursor-pointer items-center justify-between border-b border-white pb-6"
+            >
               <li>
                 <a href="#">Culture, sport et loisirs</a>
               </li>
-              <svg class="w-4 h-4">
+              <svg class="h-4 w-4">
                 <use xlink:href="./src/assets/icons/icons.svg#chevron" />
               </svg>
             </div>
-            <div class="flex items-center justify-between border-b border-white pb-6 cursor-pointer">
+            <div
+              class="flex cursor-pointer items-center justify-between border-b border-white pb-6"
+            >
               <li>
                 <a href="#">Agenda</a>
               </li>
-              <svg class="w-4 h-4">
+              <svg class="h-4 w-4">
                 <use xlink:href="./src/assets/icons/icons.svg#chevron" />
               </svg>
             </div>
-            <div class="flex items-center justify-between border-b border-white pb-6 cursor-pointer">
+            <div
+              class="flex cursor-pointer items-center justify-between border-b border-white pb-6"
+            >
               <li>
                 <a href="#">Actualités</a>
               </li>
-              <svg class="w-4 h-4">
+              <svg class="h-4 w-4">
                 <use xlink:href="./src/assets/icons/icons.svg#chevron" />
               </svg>
             </div>
-            
           </ul>
         </nav>
       </div>
     </header>
     <!-- Header partial end -->
-    <!-- Mobile nav -->
 
     <main class="col-span-1 col-start-2">
       <!-- Breadcrumb partial start -->
-      <div class="flex items-center gap-x-2 text-sm lg:text-grey-700 mb-6 lg:mb-14">
-        <svg class="w-3 h-3 lg:hidden transform rotate-180">
+      <div
+        class="mb-6 flex items-center gap-x-2 text-sm lg:mb-14 lg:text-grey-700"
+      >
+        <svg class="h-3 w-3 rotate-180 transform lg:hidden">
           <use xlink:href="./src/assets/icons/icons.svg#chevron" />
         </svg>
         <a href="#">Accueil</a>
-        <svg class="w-3 h-3 max-lg:hidden ">
+        <svg class="h-3 w-3 max-lg:hidden">
           <use xlink:href="./src/assets/icons/icons.svg#chevron" />
         </svg>
         <a href="#" class="max-lg:hidden">Actualités</a>
-        <svg class="w-3 h-3 max-lg:hidden">
+        <svg class="h-3 w-3 max-lg:hidden">
           <use xlink:href="./src/assets/icons/icons.svg#chevron" />
         </svg>
-        <a href="#" class="max-lg:hidden">L’Antistabus : une ludothèque sur roues</a>
+        <a href="#" class="max-lg:hidden"
+          >L'Antistabus : une ludothèque sur roues</a
+        >
       </div>
       <!-- Breadcrumb partial end -->
+      <!-- Article start -->
+      <article
+        class="grid-cols-[minmax(0,auto)_minmax(0,108px)_minmax(0,600px)_minmax(0,108px)_minmax(0,auto)] md:grid"
+      >
+        <div class="mb-2 font-serif text-xl text-mint lg:mb-4">
+          Activité extérieure
+        </div>
+        <h1 class="h1">L’Antistabus : une ludothèque sur roues</h1>
+        <p class="mb-4 text-lg">
+          Le service de la cohésion sociale propose aux habitantes et habitants
+          d’Antistaville des animations itinérantes et gratuites durant toutes
+          les vacances scolaires d’été.
+        </p>
+        <p class="mb-10 text-sm text-grey-700 lg:mb-16">
+          Publié le 6 avril 2022 · Mis à jour le 8 avril 2022
+        </p>
+        <figure class="mb-10 overflow-hidden rounded-lg lg:mb-16">
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="./src/assets/img/antistabus_party_small.png"
+            />
+            <img
+              src="./src/assets/img/antistabus_party.png"
+              alt="Photo des 10 ans de l'Antistabus"
+              class="mb-3 w-full object-cover"
+            />
+          </picture>
+          <figcaption class="text-xs">
+            Photo des 10 ans de l’Antistabus
+          </figcaption>
+        </figure>
+        <h2 class="h2">Nombreux jeux adaptés au plein air</h2>
+        <p class="mb-10">
+          L'Antistabus, un véhicule transportant de
+          <a href="#" class="inline-link">nombreux jeux</a> adaptés aux
+          activités de plein air, sillonnera la ville d'Antistaville pendant les
+          mois de juillet et d'août afin de proposer des moments ludiques pour
+          les petits et les grands. Des
+          <a href="#" class="inline-link">chaises longues</a> et diverses
+          animations garantiront une ambiance conviviale.
+        </p>
+        <h3 class="h3">Une équipe accueillante et attentive</h3>
+        <p class="mb-10">
+          Composée d’animatrices et de jeunes d’Antistaville, une équipe
+          accueillante et attentive aux besoins de chacune et chacun vous fera
+          découvrir le monde du jeu. Destinés à tous les publics et à tous les
+          goûts, vous pourrez vous amuser avec des jeux de plateau, en bois ou
+          même sportifs !
+        </p>
+        <h3 class="h3">FAQ</h3>
+        <!-- FAQ accordion start -->
+        <div class="mb-10 w-full border-b border-grey-200">
+          <div class="border-t border-grey-200" x-data="{ isExpanded: false }">
+            <button
+              type="button"
+              class="flex w-full items-center justify-between gap-x-3 py-4 text-left font-semibold"
+              x-on:click="isExpanded = ! isExpanded"
+            >
+              Faut-il venir habillé en magenta ?
+              <svg
+                class="h-4 w-4 transition-transform duration-300"
+                x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
+              >
+                <use xlink:href="./src/assets/icons/icons.svg#chevron-bold" />
+              </svg>
+            </button>
+            <div x-cloak x-show="isExpanded" x-collapse>
+              <div class="pb-6">
+                Oui bien sûr ! Cras justo odio, dapibus ac facilisis in egestas
+                eget quam. Aenean lacinia bibendum nulla sed consectetur. Fusce
+                dapibus tellus ac cursus commodo tortor mauris.
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-grey-200" x-data="{ isExpanded: false }">
+            <button
+              type="button"
+              class="flex w-full items-center justify-between gap-x-3 py-4 text-left font-semibold"
+              x-on:click="isExpanded = ! isExpanded"
+            >
+              Est-ce que les chiens sont admis ?
+              <svg
+                class="h-4 w-4 transition-transform duration-300"
+                x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
+              >
+                <use xlink:href="./src/assets/icons/icons.svg#chevron-bold" />
+              </svg>
+            </button>
+            <div x-cloak x-show="isExpanded" x-collapse>
+              <div class="pb-6">
+                Oui bien sûr ! Cras justo odio, dapibus ac facilisis in egestas
+                eget quam. Aenean lacinia bibendum nulla sed consectetur. Fusce
+                dapibus tellus ac cursus commodo tortor mauris.
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-grey-200" x-data="{ isExpanded: false }">
+            <button
+              type="button"
+              class="flex w-full items-center justify-between gap-x-3 py-4 text-left font-semibold"
+              x-on:click="isExpanded = ! isExpanded"
+            >
+              Les jeux sont-ils adaptés à tous les enfants ?
+              <svg
+                class="h-4 w-4 transition-transform duration-300"
+                x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
+              >
+                <use xlink:href="./src/assets/icons/icons.svg#chevron-bold" />
+              </svg>
+            </button>
+            <div x-cloak x-show="isExpanded" x-collapse>
+              <div class="pb-6">
+                Oui bien sûr ! Cras justo odio, dapibus ac facilisis in egestas
+                eget quam. Aenean lacinia bibendum nulla sed consectetur. Fusce
+                dapibus tellus ac cursus commodo tortor mauris.
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-grey-200" x-data="{ isExpanded: false }">
+            <button
+              type="button"
+              class="flex w-full items-center justify-between gap-x-3 py-4 text-left font-semibold"
+              x-on:click="isExpanded = ! isExpanded"
+            >
+              Est-ce qu’il y aura des glaces ?
+              <svg
+                class="h-4 w-4 transition-transform duration-300"
+                x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
+              >
+                <use xlink:href="./src/assets/icons/icons.svg#chevron-bold" />
+              </svg>
+            </button>
+            <div x-cloak x-show="isExpanded" x-collapse>
+              <div class="pb-6">
+                Oui bien sûr ! Cras justo odio, dapibus ac facilisis in egestas
+                eget quam. Aenean lacinia bibendum nulla sed consectetur. Fusce
+                dapibus tellus ac cursus commodo tortor mauris.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ accordion end -->
+        <p>
+          L’Amusebus s’arrêtera chaque semaine dans un quartier différent de la
+          commune pour investir les parcs et les préaux d’école du lundi au
+          vendredi de 15h à 19h.
+        </p>
+      </article>
     </main>
+    <footer
+      class="col-span-3 -mx-4 mt-16 h-[100px] bg-grey-50 lg:mt-20"
+    ></footer>
 
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
-

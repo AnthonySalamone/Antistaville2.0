@@ -1,0 +1,9 @@
+/* Article */
+
+article.md\:grid > * {
+  @apply col-span-1 col-start-3;
+}
+
+article.md\:grid figure {
+  @apply col-span-3 col-start-2;
+}

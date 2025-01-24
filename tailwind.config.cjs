@@ -76,6 +76,7 @@ module.exports = {
         {
           lineHeight: createFluidValue(36, 54),
           letterSpacing: `calc(${createFluidValue(1, 1.5)} * -1)`,
+          fontWeight: 700,
         },
       ],
       "3xl": [
@@ -83,6 +84,7 @@ module.exports = {
         {
           lineHeight: createFluidValue(32, 34),
           letterSpacing: `calc(${createFluidValue(0.7, 0.6)} * -1)`,
+          fontWeight: 700,
         },
       ],
       "2xl": [
@@ -97,6 +99,7 @@ module.exports = {
         {
           lineHeight: createFluidValue(26, 28),
           letterSpacing: -0.3,
+          fontWeight: 600,
         },
       ],
       lg: [
