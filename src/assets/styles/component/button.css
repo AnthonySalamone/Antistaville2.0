@@ -2,7 +2,7 @@
 .button,
 button.button,
 a.button {
-  @apply inline-block rounded-lg bg-anis px-3.5 py-2 font-bold text-black transition-colors duration-300 ease-in-out;
+  @apply rounded-lg bg-anis px-3.5 py-2 text-sm font-bold text-black transition-colors duration-300 ease-in-out;
 }
 
 .button:hover,
@@ -21,7 +21,7 @@ a.button:active {
 .button-light,
 button.button-light,
 a.button-light {
-  @apply inline-block rounded-lg border-2 border-grey-200 bg-white px-3.5 py-2 font-bold text-black transition-colors duration-300 ease-in-out;
+  @apply rounded-lg border-2 border-grey-200 bg-white px-3.5 py-2 text-sm font-bold text-black transition-colors duration-300 ease-in-out;
 }
 
 .button-light:hover,
