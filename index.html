@@ -30,16 +30,19 @@
   </head>
   <body
     class="grid-cols-[minmax(80px,auto)_minmax(0,1400px)_minmax(80px,auto)] font-sans text-base antialiased max-lg:px-4 lg:grid"
+    x-data="{ burgerMenuIsOpen: false }"
+    :class="burgerMenuIsOpen ? 'overflow-hidden' : ''"
   >
     <!-- Header partial start -->
     <header
       class="col-span-1 col-start-2 mb-6 flex items-center justify-between border-b border-grey-200 py-7 lg:mb-4 lg:py-10"
-      x-data="{ open: false }"
     >
       <div>
-        <svg class="h-5 w-32 lg:h-6 lg:w-36">
-          <use xlink:href="./src/assets/icons/icons.svg#Antistaville_logo" />
-        </svg>
+        <a href="/">
+          <svg class="h-5 w-32 lg:h-6 lg:w-36">
+            <use xlink:href="./src/assets/icons/icons.svg#Antistaville_logo" />
+          </svg>
+        </a>
       </div>
       <!-- Desktop nav -->
       <nav class="max-xl:hidden">
@@ -57,7 +60,7 @@
             <a href="#">Agenda</a>
           </li>
           <li>
-            <a href="#">Actualités</a>
+            <a href="#" class="active">Actualités</a>
           </li>
         </ul>
       </nav>
@@ -67,10 +70,33 @@
             <use xlink:href="./src/assets/icons/icons.svg#search" />
           </svg>
         </a>
-        <a href="#" class="xl:hidden" x-on:click="open = ! open">
-          <svg class="h-6 w-6">
-            <use xlink:href="./src/assets/icons/icons.svg#burger" />
-          </svg>
+        <a
+          href="#"
+          class="xl:hidden"
+          x-on:click="burgerMenuIsOpen = ! burgerMenuIsOpen"
+        >
+          <!-- burger partial start -->
+          <div class="flex flex-col gap-y-1.5">
+            <div
+              class="h-0.5 w-6 transform rounded-full bg-black transition-opacity duration-300"
+              :class="burgerMenuIsOpen ? 'opacity-0' : ''"
+            ></div>
+            <div class="relative h-0.5 w-6">
+              <div
+                class="absolute left-0 top-0 h-0.5 w-6 rounded-full bg-black transition-transform delay-100 duration-300"
+                :class="burgerMenuIsOpen ? 'rotate-45' : ''"
+              ></div>
+              <div
+                class="absolute left-0 top-0 h-0.5 w-6 rounded-full bg-black transition-transform delay-100 duration-300"
+                :class="burgerMenuIsOpen ? '-rotate-45' : ''"
+              ></div>
+            </div>
+            <div
+              class="h-0.5 w-6 transform rounded-full bg-black transition-opacity duration-300"
+              :class="burgerMenuIsOpen ? 'opacity-0' : ''"
+            ></div>
+          </div>
+          <!-- burger partial end -->
         </a>
         <!-- Button partial start -->
         <a href="#" class="button max-xl:hidden"> Guichet </a>
@@ -79,12 +105,17 @@
 
       <!-- Mobile nav -->
       <div
-        class="absolute top-20 left-0 z-10 h-full w-full bg-anis px-4 lg:top-26 lg:px-20 xl:hidden"
-        x-show="open"
-        x-transition
+        class="fixed top-20 left-0 z-10 h-full w-full overflow-y-auto rounded-lg bg-mint px-4 pt-10 font-semibold text-white lg:top-26 lg:px-20 xl:hidden"
+        x-show="burgerMenuIsOpen"
+        x-transition:enter="transform transition ease-out duration-200"
+        x-transition:enter-start="translate-y-full"
+        x-transition:enter-end="translate-y-0"
+        x-transition:leave="transform transition ease-in duration-200"
+        x-transition:leave-start="translate-y-0"
+        x-transition:leave-end="translate-y-full"
       >
-        <nav class="xl:hidden">
-          <ul class="mt-6 flex flex-col gap-y-6 text-lg">
+        <nav class="overflow-y-hidden">
+          <ul class="mt-6 flex flex-col gap-y-6 text-3xl uppercase">
             <!-- for end for -->
             <div
               class="flex cursor-pointer items-center justify-between border-b border-white pb-6"
@@ -92,7 +123,7 @@
               <li>
                 <a href="#">Administration et autorités</a>
               </li>
-              <svg class="h-4 w-4">
+              <svg class="h-6 w-6">
                 <use xlink:href="./src/assets/icons/icons.svg#chevron" />
               </svg>
             </div>
@@ -102,7 +133,7 @@
               <li>
                 <a href="#">Vie pratique</a>
               </li>
-              <svg class="h-4 w-4">
+              <svg class="h-6 w-6">
                 <use xlink:href="./src/assets/icons/icons.svg#chevron" />
               </svg>
             </div>
@@ -112,7 +143,7 @@
               <li>
                 <a href="#">Culture, sport et loisirs</a>
               </li>
-              <svg class="h-4 w-4">
+              <svg class="h-6 w-6">
                 <use xlink:href="./src/assets/icons/icons.svg#chevron" />
               </svg>
             </div>
@@ -122,7 +153,7 @@
               <li>
                 <a href="#">Agenda</a>
               </li>
-              <svg class="h-4 w-4">
+              <svg class="h-6 w-6">
                 <use xlink:href="./src/assets/icons/icons.svg#chevron" />
               </svg>
             </div>
@@ -132,7 +163,7 @@
               <li>
                 <a href="#">Actualités</a>
               </li>
-              <svg class="h-4 w-4">
+              <svg class="h-6 w-6">
                 <use xlink:href="./src/assets/icons/icons.svg#chevron" />
               </svg>
             </div>
@@ -170,11 +201,11 @@
         <div class="mb-2 font-serif text-xl text-mint lg:mb-4">
           Activité extérieure
         </div>
-        <h1 class="h1">L’Antistabus : une ludothèque sur roues</h1>
+        <h1 class="h1">L'Antistabus : une ludothèque sur roues</h1>
         <p class="mb-4 text-lg">
           Le service de la cohésion sociale propose aux habitantes et habitants
-          d’Antistaville des animations itinérantes et gratuites durant toutes
-          les vacances scolaires d’été.
+          d'Antistaville des animations itinérantes et gratuites durant toutes
+          les vacances scolaires d'été.
         </p>
         <p class="mb-10 text-sm text-grey-700 lg:mb-16">
           Publié le 6 avril 2022 · Mis à jour le 8 avril 2022
@@ -192,7 +223,7 @@
             />
           </picture>
           <figcaption class="text-xs">
-            Photo des 10 ans de l’Antistabus
+            Photo des 10 ans de l'Antistabus
           </figcaption>
         </figure>
         <h2 class="h2">Nombreux jeux adaptés au plein air</h2>
@@ -207,7 +238,7 @@
         </p>
         <h3 class="h3">Une équipe accueillante et attentive</h3>
         <p class="mb-10">
-          Composée d’animatrices et de jeunes d’Antistaville, une équipe
+          Composée d'animatrices et de jeunes d'Antistaville, une équipe
           accueillante et attentive aux besoins de chacune et chacun vous fera
           découvrir le monde du jeu. Destinés à tous les publics et à tous les
           goûts, vous pourrez vous amuser avec des jeux de plateau, en bois ou
@@ -291,7 +322,7 @@
               class="flex w-full items-center justify-between gap-x-3 py-4 text-left font-semibold"
               x-on:click="isExpanded = ! isExpanded"
             >
-              Est-ce qu’il y aura des glaces ?
+              Est-ce qu'il y aura des glaces ?
               <svg
                 class="h-4 w-4 transition-transform duration-300"
                 x-bind:class="isExpanded  ?  'rotate-180'  :  ''"
@@ -310,15 +341,193 @@
         </div>
         <!-- FAQ accordion end -->
         <p>
-          L’Amusebus s’arrêtera chaque semaine dans un quartier différent de la
-          commune pour investir les parcs et les préaux d’école du lundi au
+          L'Amusebus s'arrêtera chaque semaine dans un quartier différent de la
+          commune pour investir les parcs et les préaux d'école du lundi au
           vendredi de 15h à 19h.
         </p>
       </article>
     </main>
     <footer
-      class="col-span-3 -mx-4 mt-16 h-[100px] bg-grey-50 lg:mt-20"
-    ></footer>
+      class="col-span-3 mt-16 grid-cols-[minmax(80px,auto)_minmax(0,1400px)_minmax(80px,auto)] bg-grey-50 max-lg:-mx-4 max-lg:px-4 md:grid lg:mt-20"
+    >
+      <div class="col-span-1 col-start-2">
+        <div
+          class="border-b border-grey-300 pt-14 pb-10 max-lg:space-y-14 lg:flex lg:gap-x-10 lg:pt-20 lg:pb-24"
+        >
+          <div class="lg:flex-1">
+            <div class="footer-title">Navigation</div>
+            <nav>
+              <ul class="space-y-2 text-xl font-bold">
+                <li><a href="#">Administration et autorités</a></li>
+                <li><a href="#">Vie pratique</a></li>
+                <li><a href="#">Culture, sport et loisirs</a></li>
+                <li><a href="#">Agenda</a></li>
+                <li><a href="#">Actualités</a></li>
+                <li><a href="#">Guichet</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="lg:flex-1">
+            <div class="footer-title">Liens utiles</div>
+            <nav>
+              <ul class="space-y-2">
+                <li><a href="#">Économie locale</a></li>
+                <li><a href="#">Location de salles</a></li>
+                <li><a href="#">Offres d'emploi</a></li>
+                <li><a href="#">Organiser une manifestation</a></li>
+                <li><a href="#">Conseil communal</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="h-fit rounded-lg bg-white p-4 lg:flex-1 lg:p-6">
+            <div class="mb-2 text-2xl font-bold">Newsletter</div>
+            <p class="mb-6">
+              Inscrivez-vous pour rester au courant de la vie d'Antistaville.
+            </p>
+            <!-- Newsletter form partial start -->
+            <form
+              x-data="{ email: '', isValidEmail: false }"
+              x-on:submit.prevent="if (!isValidEmail) return;"
+              class="flex flex-col max-lg:gap-y-3 md:flex-row md:gap-x-3"
+            >
+              <input
+                type="email"
+                placeholder="Entrez votre email"
+                x-model="email"
+                x-on:input="isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)"
+                class="w-full rounded-lg bg-grey-50 py-2 px-4 text-sm text-grey-700 focus:outline-none focus:ring-1 focus:ring-mint max-lg:w-full"
+              />
+              <button
+                type="submit"
+                :disabled="!isValidEmail"
+                :class="{ 'opacity-50 pointer-events-none': !isValidEmail }"
+                class="button max-lg:w-fit md:min-w-fit"
+              >
+                Je m'inscris
+              </button>
+            </form>
+            <!-- Newsletter form partial end -->
+          </div>
+        </div>
+
+        <div
+          class="border-b border-grey-300 py-10 max-lg:space-y-14 lg:flex lg:gap-x-10"
+        >
+          <div class="lg:flex-1">
+            <div class="footer-title">Adresse</div>
+            <p>
+              Maire d'Antistaville
+              <br />
+              Rue de l'Amour-du-Web
+              <br />
+              Case postale 42
+              <br />
+              1000 Antistaville
+            </p>
+          </div>
+          <div class="lg:flex-1">
+            <div class="footer-title">Contact</div>
+            <div class="flex flex-col gap-y-2">
+              <a href="tel:+410221234567" class="button-light w-fit"
+                >022 123 45 67</a
+              >
+              <a href="mailto:mairie@antistaville.ch" class="button-light w-fit"
+                >mairie@antistaville.ch</a
+              >
+            </div>
+          </div>
+          <div class="lg:flex-1">
+            <div class="footer-title">Horaires du guichet</div>
+            <div class="grid grid-cols-2 lg:grid-cols-[1fr_2fr]">
+              <div class="col-span-1">Lundi</div>
+              <div class="col-span-1">09:00–14:00</div>
+              <div class="col-span-1">Mardi</div>
+              <div class="col-span-1">09:00–14:00</div>
+              <div class="col-span-1">Mercredi</div>
+              <div class="col-span-1">09:00–17:00</div>
+              <div class="col-span-1">Jeudi</div>
+              <div class="col-span-1">09:00–14:00</div>
+              <div class="col-span-1">Vendredi</div>
+              <div class="col-span-1">09:00–14:00</div>
+            </div>
+          </div>
+          <div class="lg:flex-1">
+            <div class="footer-title">Réseaux sociaux</div>
+            <div class="flex">
+              <a
+                href="https://www.facebook.com/antistaville"
+                target="_blank"
+                class="p-3"
+              >
+                <svg class="h-6 w-6">
+                  <use xlink:href="./src/assets/icons/icons.svg#facebook" />
+                </svg>
+              </a>
+              <a
+                href="https://www.instagram.com/antistaville"
+                target="_blank"
+                class="p-3"
+              >
+                <svg class="h-6 w-6">
+                  <use xlink:href="./src/assets/icons/icons.svg#instagram" />
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/antistaville"
+                target="_blank"
+                class="p-3"
+              >
+                <svg class="h-6 w-6">
+                  <use xlink:href="./src/assets/icons/icons.svg#linkedin" />
+                </svg>
+              </a>
+              <a
+                href="https://www.youtube.com/antistaville"
+                target="_blank"
+                class="p-3"
+              >
+                <svg class="h-6 w-6">
+                  <use xlink:href="./src/assets/icons/icons.svg#youtube" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="justify-between py-6 text-sm text-grey-700 max-lg:space-y-4 lg:flex lg:py-10"
+        >
+          <div class="gap-x-10 max-lg:space-y-4 lg:flex">
+            <p>copyright ©2022 Antistaville</p>
+            <div class="flex flex-wrap gap-x-4 gap-y-2">
+              <a
+                href="#"
+                class="underline decoration-grey-300 underline-offset-6"
+                >Protections des données</a
+              >
+              <a
+                href="#"
+                class="underline decoration-grey-300 underline-offset-6"
+                >Plan du site</a
+              >
+              <a
+                href="#"
+                class="underline decoration-grey-300 underline-offset-6"
+                >Lexique</a
+              >
+            </div>
+          </div>
+          <div>
+            Réalisé par
+            <a
+              href="https://www.antistatique.net"
+              target="_blank"
+              class="underline decoration-grey-300 underline-offset-6"
+              >Antistatique</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script type="module" src="/src/main.js"></script>
   </body>

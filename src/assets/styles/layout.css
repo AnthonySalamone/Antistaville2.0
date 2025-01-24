@@ -1,5 +1,4 @@
 /* Article */
-
 article.md\:grid > * {
   @apply col-span-1 col-start-3;
 }

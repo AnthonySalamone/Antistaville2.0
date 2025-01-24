@@ -12,13 +12,13 @@ const createFluidValue = (
   minSize,
   maxSize,
   minScreenSize = DEFAULT_MIN_SCREEN,
-  maxScreenSize = DEFAULT_MAX_SCREEN,
+  maxScreenSize = DEFAULT_MAX_SCREEN
 ) => {
   return `clamp(${minSize}px, ${getPreferredValue(
     minSize,
     maxSize,
     minScreenSize,
-    maxScreenSize,
+    maxScreenSize
   )}, ${maxSize}px)`;
 };
 
@@ -27,11 +27,11 @@ const createFluidValue = (
  */
 const getPreferredValue = (minSize, maxSize, minScreenSize, maxScreenSize) => {
   const vwCalc = cleanNumber(
-    (100 * (maxSize - minSize)) / (maxScreenSize - minScreenSize),
+    (100 * (maxSize - minSize)) / (maxScreenSize - minScreenSize)
   );
   const pxCalc = cleanNumber(
     (minScreenSize * maxSize - maxScreenSize * minSize) /
-      (minScreenSize - maxScreenSize),
+      (minScreenSize - maxScreenSize)
   );
 
   return `${vwCalc}vw + ${pxCalc}px`;
@@ -44,18 +44,14 @@ const getPreferredValue = (minSize, maxSize, minScreenSize, maxScreenSize) => {
  */
 const cleanNumber = (num) => Math.round((num + Number.EPSILON) * 100) / 100;
 
-
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      white: '#ffffff',
-      black: '#000000',
+      transparent: "transparent",
+      current: "currentColor",
+      white: "#ffffff",
+      black: "#000000",
       grey: {
         50: "#F3F1EE",
         200: "#E8E6E3",
@@ -63,12 +59,12 @@ module.exports = {
         700: "#7D7D7D",
         900: "#1C1C1C",
       },
-      mint: '#3F9544',
-      anis: '#C8E671',
+      mint: "#3F9544",
+      anis: "#C8E671",
     },
     fontFamily: {
-      sans: ['Inter', 'sans-serif'],
-      serif: ['Lexend', 'serif'],
+      sans: ["Inter", "sans-serif"],
+      serif: ["Lexend", "serif"],
     },
     fontSize: {
       "4xl": [
@@ -140,7 +136,10 @@ module.exports = {
         26: "6.5rem",
         30: "7.5rem",
       },
+      textUnderlineOffset: {
+        6: "6px",
+      },
     },
   },
   plugins: [],
-}
+};

@@ -1,14 +1,9 @@
 @import "./component/button.css";
 @import "./component/titles.css";
 @import "./component/inline-link.css";
+@import "./component/nav.css";
 @import "layout.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Base */
-
-a {
-  @apply cursor-pointer;
-}
