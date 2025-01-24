@@ -1,0 +1,3 @@
+.button {
+  @apply bg-anis text-black px-3.5 py-2 rounded-lg font-bold;
+}
