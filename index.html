@@ -30,7 +30,7 @@
   </head>
   <body
     class="grid-cols-[minmax(80px,auto)_minmax(0,1400px)_minmax(80px,auto)] font-sans text-base antialiased max-lg:px-4 lg:grid"
-    x-data="{ burgerMenuIsOpen: false }"
+    x-data="{ burgerMenuIsOpen: false, searchActive: false }"
     :class="burgerMenuIsOpen ? 'overflow-hidden' : ''"
   >
     <!-- Header partial start -->
@@ -65,8 +65,28 @@
         </ul>
       </nav>
       <div class="flex items-center gap-x-6">
-        <a href="#">
-          <svg class="h-6 w-6">
+        <!-- search input partial start -->
+        <div class="flex items-center gap-x-2">
+          <input
+            type="text"
+            placeholder="Rechercher"
+            class="w-28 rounded-lg bg-grey-50 py-2 px-4 text-sm text-grey-700 focus:outline-none focus:ring-1 focus:ring-mint max-lg:h-6"
+            x-show="searchActive"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 transform scale-90"
+            x-transition:enter-end="opacity-100 transform scale-100"
+          />
+          <svg
+            class="h-6 w-6 -rotate-45 transform cursor-pointer"
+            x-show="searchActive"
+            x-on:click="searchActive = !searchActive"
+          >
+            <use xlink:href="./src/assets/icons/icons.svg#cross" />
+          </svg>
+        </div>
+        <!-- search input partial end -->
+        <a href="#" x-on:click="searchActive = !searchActive">
+          <svg class="h-6 w-6" :class="{ 'hidden': searchActive }">
             <use xlink:href="./src/assets/icons/icons.svg#search" />
           </svg>
         </a>
@@ -74,6 +94,7 @@
           href="#"
           class="xl:hidden"
           x-on:click="burgerMenuIsOpen = ! burgerMenuIsOpen"
+          :class="{ 'hidden': searchActive }"
         >
           <!-- burger partial start -->
           <div class="flex flex-col gap-y-1.5">
@@ -99,7 +120,13 @@
           <!-- burger partial end -->
         </a>
         <!-- Button partial start -->
-        <a href="#" class="button max-xl:hidden"> Guichet </a>
+        <a
+          href="#"
+          class="button max-xl:hidden"
+          :class="{ 'hidden': searchActive }"
+        >
+          Guichet
+        </a>
         <!-- Button partial end -->
       </div>
 
